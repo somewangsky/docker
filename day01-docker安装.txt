@@ -1,0 +1,14 @@
+1.	cd /etc/yum.repos.d/
+2.	yum repolist (显示所有仓库)
+3.	wget https://mirrors.tuna.tsinghua.edu.cn/docker-ce/linux/centos/docker-ce.repo					
+	（下载清华大学的docker镜像）
+4.	vim docker-ce.repo（编辑这个文件）
+	将baserurl中的地址换成清华大学的地址:@s@原来的地址@https://mirrors.tuna.tsinghua.edu.cn/docker-ce/@
+5.	yum install docker-ce (安装docker)
+6.	vim /etc/docker/daemon.json
+	在里面添加一个json串
+	{
+        "registry-mirrors": ["https://registry.docker-cn.com"]
+	}
+	把docker的仓库地址设为docker中国
+7.	systemctl start docker.service （启动docker）
